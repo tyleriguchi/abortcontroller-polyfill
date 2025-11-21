@@ -25,6 +25,6 @@ export function signalPolyfillNeeded(self) {
   return (
     !!self.AbortController &&
     typeof self.AbortSignal === 'function' &&
-    !self.AbortSignal.prototype.hasOwnProperty('reason')
+    (!self.AbortSignal.prototype.hasOwnProperty('reason') || !self.AbortSignal.prototype.hasOwnProperty('any'))
   );
 }
